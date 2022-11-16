@@ -14,5 +14,5 @@ async function sonarSweep(inputPath) {
     return count
 }
 
-const path = 'day_1_sonar_sweep/input.txt'
+const path = 'day_1_sonar_sweep/sweep_report.txt'
 sonarSweep(path).then((result) => console.log(result))
