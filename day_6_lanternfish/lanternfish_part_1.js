@@ -15,9 +15,7 @@ async function lanternfishAnalyzer(fileName) {
     return lanternfishes.length
 }
 
-const loop = (times, callback) => {
-    [...Array(times)].forEach(callback);
-};
+const loop = (times, callback) => [...Array(times)].forEach(callback)
 
 const fileName = 'day_6_lanternfish/lanternfishes.txt'
 lanternfishAnalyzer(fileName).then((result) => console.log(result))
