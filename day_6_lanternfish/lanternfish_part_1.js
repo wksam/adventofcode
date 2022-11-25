@@ -5,14 +5,14 @@ async function readFile(fileName, encoding='utf-8') {
     return data.split(',').map(element => parseInt(element))
 }
 
-async function overlaps(fileName) {
-    let laternfishes = await readFile(fileName)
+async function lanternfishAnalyzer(fileName) {
+    let lanternfishes = await readFile(fileName)
     loop(80, () => {
-        const counter = laternfishes.filter((laternfish => laternfish == 0)).length
-        laternfishes = laternfishes.map((laternfish) => laternfish != 0 ? laternfish - 1 : 6)
-        laternfishes = laternfishes.concat(Array(counter).fill(8))
+        const counter = lanternfishes.filter((laternfish => laternfish == 0)).length
+        lanternfishes = lanternfishes.map((laternfish) => laternfish != 0 ? laternfish - 1 : 6)
+        lanternfishes = lanternfishes.concat(Array(counter).fill(8))
     })
-    return laternfishes.length
+    return lanternfishes.length
 }
 
 const loop = (times, callback) => {
@@ -20,4 +20,4 @@ const loop = (times, callback) => {
 };
 
 const fileName = 'day_6_lanternfish/lanternfishes.txt'
-overlaps(fileName).then((result) => console.log(result))
+lanternfishAnalyzer(fileName).then((result) => console.log(result))
