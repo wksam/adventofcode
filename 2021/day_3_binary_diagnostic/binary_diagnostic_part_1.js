@@ -18,5 +18,5 @@ async function binaryDiagnostic(fileName) {
     return gammaRate * epsilonRate
 }
 
-const fileName = 'day_3_binary_diagnostic/diagnostic_report.txt'
+const fileName = '2021/day_3_binary_diagnostic/diagnostic_report.txt'
 binaryDiagnostic(fileName).then((result) => console.log(result))

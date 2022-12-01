@@ -26,5 +26,5 @@ async function controlSubmarine(fileName) {
     return position * depth
 }
 
-const fileName = 'day_2_dive/planned_course.txt'
+const fileName = '2021/day_2_dive/planned_course.txt'
 controlSubmarine(fileName).then((result) => console.log(result))

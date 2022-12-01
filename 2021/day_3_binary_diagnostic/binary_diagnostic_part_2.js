@@ -29,5 +29,5 @@ function filterDiagnostic(diagnostic, position, filter) {
     return diagnostic.filter((element) => element[position] == digit)
 }
 
-const fileName = 'day_3_binary_diagnostic/diagnostic_report.txt'
+const fileName = '2021/day_3_binary_diagnostic/diagnostic_report.txt'
 lifeSupportRating(fileName).then((result) => console.log(result))

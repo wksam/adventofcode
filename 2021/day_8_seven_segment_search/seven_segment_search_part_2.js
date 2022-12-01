@@ -71,5 +71,5 @@ function removeFromArray(array, value) {
 
 const alphabeticalOrder = (letters) => [...letters].sort().join('')
 
-const fileName = 'day_8_seven_segment_search/notes.txt'
+const fileName = '2021/day_8_seven_segment_search/notes.txt'
 decodeOutputValues(fileName).then((result) => console.log(result))

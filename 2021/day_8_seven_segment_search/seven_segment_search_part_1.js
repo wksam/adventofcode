@@ -24,5 +24,5 @@ async function find1478(fileName) {
     return count
 }
 
-const fileName = 'day_8_seven_segment_search/notes.txt'
+const fileName = '2021/day_8_seven_segment_search/notes.txt'
 find1478(fileName).then((result) => console.log(result))

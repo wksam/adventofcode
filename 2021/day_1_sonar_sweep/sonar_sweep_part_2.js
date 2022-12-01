@@ -20,5 +20,5 @@ async function sumMeasurementSlidingWindow(inputPath, windowSize) {
     return counter
 }
 
-const path = 'day_1_sonar_sweep/sweep_report.txt'
+const path = '2021/day_1_sonar_sweep/sweep_report.txt'
 sumMeasurementSlidingWindow(path, 3).then((result) => console.log(result))

@@ -31,5 +31,5 @@ function isLowPoint(map, x, y) {
     return true
 }
 
-const fileName = 'day_9_smoke_basin/heightmap.txt'
+const fileName = '2021/day_9_smoke_basin/heightmap.txt'
 calculateRiskLevel(fileName).then((result) => console.log(result))

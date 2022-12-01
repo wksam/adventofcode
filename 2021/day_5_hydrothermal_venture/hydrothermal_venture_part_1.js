@@ -37,5 +37,5 @@ async function overlaps(fileName) {
     , 0)
 }
 
-const fileName = 'day_5_hydrothermal_venture/lines_of_vents.txt'
+const fileName = '2021/day_5_hydrothermal_venture/lines_of_vents.txt'
 overlaps(fileName).then((result) => console.log(result))

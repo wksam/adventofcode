@@ -50,5 +50,5 @@ function sumAllUnmarked(board) {
 
 const toInt = (element) => parseInt(element)
 
-const fileName = 'day_4_giant_squid/set_of_boards.txt'
+const fileName = '2021/day_4_giant_squid/set_of_boards.txt'
 lifeSupportRating(fileName).then((result) => console.log(result))

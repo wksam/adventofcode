@@ -24,5 +24,5 @@ async function leastFuelPossible(fileName) {
     return minFuel
 }
 
-const fileName = 'day_7_the_treachery_of_whales/crabs_position.txt'
+const fileName = '2021/day_7_the_treachery_of_whales/crabs_position.txt'
 leastFuelPossible(fileName).then((result) => console.log(result))
