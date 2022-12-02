@@ -5,7 +5,7 @@ async function readFile(fileName, encoding='utf-8') {
     return data.split(/\r?\n/)
 }
 
-async function calculateRiskLevel(fileName) {
+async function firstIllegalCharacter(fileName) {
     const navigation_subsystem = await readFile(fileName)
     const stack = []
     let score = 0
@@ -40,4 +40,4 @@ function convert(symbol) {
 }
 
 const fileName = '2021/day_10_syntax_scoring/navigation_subsystem.txt'
-calculateRiskLevel(fileName).then((result) => console.log(result))
+firstIllegalCharacter(fileName).then((result) => console.log(result))
