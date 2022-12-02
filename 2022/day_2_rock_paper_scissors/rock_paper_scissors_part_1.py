@@ -22,14 +22,14 @@ def decrypt_strategy_guide(path):
     score = 0
     for round in rounds:
         opponent, player = round
-        if won(player, opponent):
+        if win(player, opponent):
             score += 6
         elif draw(player, opponent):
             score += 3
         score += player.value
     return score
 
-def won(player, opponent):
+def win(player, opponent):
     return ((player == Shape.ROCK and opponent == Shape.SCISSORS) or 
         (player == Shape.PAPER and opponent == Shape.ROCK) or
         (player == Shape.SCISSORS and opponent == Shape.PAPER))
