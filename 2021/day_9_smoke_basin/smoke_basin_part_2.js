@@ -8,15 +8,16 @@ async function readFile(fileName, encoding='utf-8') {
 async function calculateBasinsSize(fileName) {
     const heightmap = await readFile(fileName)
 
-    let riskLevel = 0
+    let basins = []
     for (let y = 0; y < heightmap.length; y++) {
         for (let x = 0; x < heightmap[y].length; x++) {
             if(isLowPoint(heightmap, x, y))
-                riskLevel += heightmap[y][x] + 1
+                basins.push(basinSize(heightmap, x, y))
         }
     }
-
-    return riskLevel
+    return basins.sort((a, b) => a - b)
+        .slice(basins.length - 3, basins.length)
+        .reduce((previousValue, currentValue) => previousValue *= currentValue, 1)
 }
 
 function isLowPoint(map, x, y) {
@@ -32,8 +33,27 @@ function isLowPoint(map, x, y) {
 }
 
 function basinSize(map, x, y) {
-
+    let open = [[y, x]]
+    let closed = []
+    while(open.length > 0) {
+        let position = open.shift()
+        if(!coordinateExists(closed, position) && getValue(map, position) < 9) {
+            closed.push(position)
+            if(position[1] - 1 >= 0)
+                open.push([position[0], position[1] - 1])
+            if(position[1] + 1 < map[position[0]].length)
+                open.push([position[0], position[1] + 1])
+            if(position[0] - 1 >= 0)
+                open.push([position[0] - 1, position[1]])
+            if(position[0] + 1 < map.length)
+                open.push([position[0] + 1, position[1]])
+        }
+    }
+    return closed.length
 }
 
-const fileName = 'day_9_smoke_basin/heightmap.txt'
+const getValue = (map, position) => map[position[0]][position[1]]
+const coordinateExists = (coordinates, position) => coordinates.some((coordinate) => coordinate.every((value, index) => value == position[index]))
+
+const fileName = '2021/day_9_smoke_basin/heightmap.txt'
 calculateBasinsSize(fileName).then((result) => console.log(result))
