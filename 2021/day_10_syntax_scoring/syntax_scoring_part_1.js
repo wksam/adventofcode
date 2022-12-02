@@ -7,7 +7,7 @@ async function readFile(fileName, encoding='utf-8') {
 
 async function firstIllegalCharacter(fileName) {
     const navigation_subsystem = await readFile(fileName)
-    const stack = []
+    let stack = []
     let score = 0
     for (const line of navigation_subsystem) {
         for (const symbol of line) {
@@ -22,6 +22,7 @@ async function firstIllegalCharacter(fileName) {
                 break
             }
         }
+        stack = []
     }
     return score
 }
