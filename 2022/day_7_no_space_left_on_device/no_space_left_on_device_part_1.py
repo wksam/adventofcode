@@ -42,7 +42,10 @@ def format_input(input):
 def directory_size(path):
     file = read_file(path)
     commands = format_input(file)
+    directory = organize_directories(commands)
+    return sum_all_directory_under_100000(directory)
 
+def organize_directories(commands):
     current_directory = Directory('/')
     for cmd in commands:
         io = cmd.split('\n')
@@ -66,8 +69,7 @@ def directory_size(path):
                     current_directory.create_file(description[1], int(description[0]))
     while current_directory.parent != None:
         current_directory = current_directory.back_directory()
-
-    return sum_all_directory_under_100000(current_directory)
+    return current_directory
 
 def sum_all_directory_under_100000(directory):
     sum = 0
