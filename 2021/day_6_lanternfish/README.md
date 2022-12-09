@@ -1,7 +1,7 @@
 # [Day 6: Lanternfish](https://adventofcode.com/2021/day/6)
 The sea floor is getting steeper. Maybe the sleigh keys got carried this way?
 
-A massive school of glowing **lanternfish** swims past. They must spawn quickly to reach such large numbers - maybe **exponentially** quickly? You should model their growth rate to be sure.
+A massive school of glowing [lanternfish](https://en.wikipedia.org/wiki/Lanternfish) swims past. They must spawn quickly to reach such large numbers - maybe **exponentially** quickly? You should model their growth rate to be sure.
 
 Although you know nothing about this specific species of lanternfish, you make some guesses about their attributes. Surely, each lanternfish creates a new lanternfish once every **7** days.
 
