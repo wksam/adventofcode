@@ -1,6 +1,3 @@
-def read_file(path):
-    return open(path).read()
-
 class Directory:
     def __init__(self, name, parent=None, subdirectories=None) -> None:
         self.name = name
@@ -35,6 +32,9 @@ class File:
     def __init__(self, name, size) -> None:
         self.name = name
         self.size = size
+        
+def read_file(path):
+    return open(path).read()
 
 def format_input(input):
     return ('\n' + input).split('\n$ ')[1:]
