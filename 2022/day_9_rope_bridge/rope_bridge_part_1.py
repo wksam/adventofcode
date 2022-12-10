@@ -37,5 +37,3 @@ def round_up(number):
 
 path = '2022/day_9_rope_bridge/series_of_motions.txt'
 print(tail_tracker(path))
-
-# 8907 too high
