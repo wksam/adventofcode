@@ -43,12 +43,12 @@ def get_monkeys(file):
     monkeys = []
     for monkey_file in monkey_list:
         monkey_file = [m.strip() for m in monkey_file.splitlines()]
-        monkey_name = int(monkey_file[0][:-1].split(' ')[-1:].pop())
+        monkey_name = int(monkey_file[0][:-1].split(' ')[-1])
         monkey_items = [int(item) for item in monkey_file[1][16:].split(', ')]
         monkey_operation = monkey_file[2].split(' ')[-3:]
-        monkey_test = int(monkey_file[3].split(' ')[-1:].pop())
-        monkey_if_true = int(monkey_file[4].split(' ')[-1:].pop())
-        monkey_if_false = int(monkey_file[5].split(' ')[-1:].pop())
+        monkey_test = int(monkey_file[3].split(' ')[-1])
+        monkey_if_true = int(monkey_file[4].split(' ')[-1])
+        monkey_if_false = int(monkey_file[5].split(' ')[-1])
         monkey = Monkey(monkey_name, monkey_operation, monkey_test, monkey_if_true, monkey_if_false, monkey_items)
         monkeys.append(monkey)
     return monkeys
@@ -65,13 +65,9 @@ def active_monkeys(path):
                 m = next((m for m in monkeys if m.name == monkey.throw_item_to(item)), None)
                 m.items.append(item)
     
-    times_inspected = []
-    for monkey in monkeys:
-        times_inspected.append(monkey.inspected)
-    first_largest = max(times_inspected)
-    times_inspected.remove(first_largest)
-    second_largest = max(times_inspected)
-    return first_largest * second_largest
+    times_inspected = [monkey.inspected for monkey in monkeys]
+    times_inspected.sort()
+    return times_inspected[-1] * times_inspected[-2]
 
 path = '2022/day_11_monkey_in_the_middle/notes.txt'
 print(active_monkeys(path))
