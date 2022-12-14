@@ -18,7 +18,6 @@ def is_right_order(left, right):
         right = [right]
     elif isinstance(left, int) and isinstance(right, list):
         left = [left]
-    
     if isinstance(left, list) and isinstance(right, list):
         index = 0
         while index < len(left) and index < len(right):
@@ -42,10 +41,8 @@ def is_right_order(left, right):
 def quicksort(list):
     lower = []
     higher = []
-    
     if len(list) == 0:
         return list
-
     pivot = list.pop(0)
     for item in list:
         if is_right_order(item, pivot) != -1:
