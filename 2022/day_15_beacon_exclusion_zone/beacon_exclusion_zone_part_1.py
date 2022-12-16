@@ -14,7 +14,7 @@ def beacon_exclusion_zone(path, y):
     beacons_in_range = set()
     for index, [sensor, beacon] in enumerate(report):
         if y <= sensor[1] + distances[index] and y >= sensor[1] - distances[index]:
-            no_beacon_in_ranges.append(get_no_beacon_line(sensor, distances[index], y))
+            no_beacon_in_ranges.append(get_line(sensor, distances[index], y))
             if beacon[1] == y:
                 beacons_in_range.add(tuple(beacon))
     min_x = min(no_beacon_in_ranges, key=lambda x: x[0])
@@ -24,7 +24,7 @@ def beacon_exclusion_zone(path, y):
 def manhattan_geometry(a, b):
     return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
-def get_no_beacon_line(sensor, d, y):
+def get_line(sensor, d, y):
     right_x = d - abs(y - sensor[1]) + sensor[0]
     left_x = (sensor[0] - right_x) * 2 + right_x
     return [left_x, right_x]
