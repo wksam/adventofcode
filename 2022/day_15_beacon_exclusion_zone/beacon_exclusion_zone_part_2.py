@@ -9,10 +9,10 @@ def beacon_exclusion_zone(path):
     file = read_file(path)
     report = format_input(file)
     report = [(coord[0], coord[1], manhattan_geometry(coord[0], coord[1])) for coord in report]
-    for sensor_1, _, distance_1 in report:
-        for distance_x in range(distance_1 + 2):
-            distance_y = distance_1 + 1 - distance_x
-            for x, y in [(sensor_1[0] + distance_x, sensor_1[1] + distance_y), (sensor_1[0] + distance_x, sensor_1[1] - distance_y), (sensor_1[0] - distance_x, sensor_1[1] + distance_y), (sensor_1[0] - distance_x, sensor_1[1] - distance_y)]:
+    for sensor, _, distance in report:
+        for distance_x in range(distance + 2):
+            distance_y = distance + 1 - distance_x
+            for x, y in [(sensor[0] + distance_x, sensor[1] + distance_y), (sensor[0] + distance_x, sensor[1] - distance_y), (sensor[0] - distance_x, sensor[1] + distance_y), (sensor[0] - distance_x, sensor[1] - distance_y)]:
                 if x < 0 or x > 4000000 or y < 0 or y > 4000000:
                     continue
                 if is_not_in_range(x, y, report):
